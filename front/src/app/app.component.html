@@ -1,3 +1,7 @@
 <!--<app-home></app-home>-->
-<app-navbar *ngIf="router.url !== '/login'" homeButton="{{ textButton }}"></app-navbar>
+<app-navbar
+  *ngIf="router.url !== '/login' && router.url !== '/register'"
+  [homeButton]="textButton"
+>
+</app-navbar>
 <router-outlet />
