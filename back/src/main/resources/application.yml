@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: medical-clinic-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/medical-clinic
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    validate-on-migrate: true
+
+security:
+  config:
+    prefix: Bearer
+    key: Jk2/f2tE2MItKfyOyybVVAgTLz5MwETZVX9B3TuOssOpyn6FdS36iYh9TqlK0FjEHw2M+fL3dqLXLGv/+Lk/ug==
+    expiration: 3600000

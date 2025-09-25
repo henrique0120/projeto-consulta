@@ -1,0 +1,29 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-container">
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      type="email"
+      name="email"
+      required
+      [(ngModel)]="email"
+      placeholder="Digite seu e-mail">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Senha</mat-label>
+    <input
+      matInput
+      type="password"
+      name="password"
+      required
+      [(ngModel)]="password"
+      placeholder="Digite sua senha">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+    Entrar
+  </button>
+
+</form>

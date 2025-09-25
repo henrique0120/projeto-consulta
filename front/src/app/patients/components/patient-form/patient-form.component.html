@@ -1,0 +1,67 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)" class="container">
+  <div class="row">
+    <div class="col-12">
+      <mat-form-field class="fil-col">
+        <mat-label>Nome</mat-label>
+        <input
+          matInput
+          name="name"
+          id="name"
+          #nameModel="ngModel"
+          [(ngModel)]="patient.name"
+          required
+        />
+
+        <mat-error *ngIf="nameModel.hasError('required')"
+          >Informe o nome do paciente</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <div class="col-6">
+      <mat-form-field class="fil-col">
+        <mat-label>E-mail</mat-label>
+        <input
+          matInput
+          name="email"
+          id="email"
+          #emailModel="ngModel"
+          [(ngModel)]="patient.email"
+          required
+          email
+        />
+        <mat-error
+          *ngIf="nameModel.hasError('required') || nameModel.hasError('email')"
+          >Informe um email válido para o paciente</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <div class="col-6">
+      <mat-form-field class="fil-col">
+        <mat-label>Celular</mat-label>
+        <input
+          matInput
+          name="phone"
+          id="phone"
+          #phoneModel="ngModel"
+          [(ngModel)]="patient.phone"
+          required
+          mask="(00) 0000-0000"
+        />
+        <mat-error
+          *ngIf="nameModel.hasError('required') || nameModel.hasError('phone')"
+          >Informe um telefone válido para o paciente</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <div class="col div-button">
+        <button type="submit" mat-flat-button [disabled]="form.invalid">
+          Salvar
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

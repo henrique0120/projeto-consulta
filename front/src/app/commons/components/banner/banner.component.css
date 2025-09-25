@@ -1,0 +1,63 @@
+.container__banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 70%;
+  padding: 0 20px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.banner__left{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+
+}
+
+.banner__left__title{
+  width: 600px;
+  margin-bottom: 20px;
+}
+
+.banner__left__title > h1{
+  font-size: 70px;
+  font-weight: bold;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.banner__desc{
+  width: 600px;
+  margin-bottom: 10px;
+}
+
+.banner__desc > p{
+  line-height: 1.6;
+  color: grey;
+
+}
+
+.banner__btn > button{
+  padding: 5px 20px;
+  background-color: #006D33; /* Cor de fundo do botão */
+  color: #fff; /* Cor do texto */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.banner__img{
+  height: 409px;
+  width: 40%;
+}
+
+.banner__img > img{
+  border-radius: 1.6rem;
+  height: 100%;
+  width: 100%;
+}
+
+

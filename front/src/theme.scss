@@ -1,0 +1,8 @@
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: mat.$spring-green-palette,
+    density: 0
+  ));
+}

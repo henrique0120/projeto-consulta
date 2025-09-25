@@ -1,0 +1,39 @@
+.container__text{
+  display: flex;
+  justify-content:space-between;
+  flex-direction: row;
+  width: 70%;
+  padding: 0 20px;
+  margin: 0 auto;
+  margin-top: 45px;
+  margin-bottom: 50px;
+}
+
+.text__left{
+  width: 500px;
+}
+hr {
+  margin: 25px auto;
+  width: 68%;
+  border: 2px solid gray;
+}
+
+
+.text__left > h2{
+  font-size: 50px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.text__right{
+  width: 345px;
+  margin-right: 50px;
+}
+
+.text__right > p{
+  line-height: 1.6;
+  font-size: 20px;
+  color: grey;
+
+}
+

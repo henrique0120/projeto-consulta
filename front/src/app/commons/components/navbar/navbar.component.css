@@ -1,0 +1,53 @@
+.container__navbar {
+  display: flex;
+  width: 70%;
+  align-items: center;
+  justify-content: center; /* Centraliza os itens dentro do contêiner */
+  padding: 0 20px;
+  position: relative; /* Para o posicionamento do logo */
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  background-color: #F9FAEC;
+}
+
+.navbar__logo {
+  position: absolute;
+  left: 300px; /* Ajuste a distância da borda esquerda */
+}
+
+.navbar__logo img {
+  max-height: 50px; /* Ajuste o tamanho conforme necessário */
+}
+
+.navbar__list ul {
+  display: flex;
+  gap: 15px; /* Espaçamento entre os itens da lista */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar__list ul li a {
+  text-decoration: none;
+  color: #000; /* Escolha a cor que preferir */
+}
+
+.navbar__button {
+  position: absolute;
+  right: 305px; /* Alinha o botão ao canto direito */
+}
+
+.navbar__button button {
+  padding: 5px 20px;
+  background-color: #006D33; /* Cor de fundo do botão */
+  color: #fff; /* Cor do texto */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar__button button:hover {
+  background-color: #00421f; /* Cor ao passar o mouse */
+}

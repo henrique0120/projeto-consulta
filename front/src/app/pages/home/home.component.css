@@ -1,0 +1,13 @@
+.container__home{
+  display: flex;
+  flex-direction: column;
+  background-color: #F9FAEC;
+}
+
+.container__home > hr {
+  margin: 25px auto;
+  width: 68%;
+  border: 2px solid gray;
+}
+
+

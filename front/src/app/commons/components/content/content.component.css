@@ -1,0 +1,7 @@
+.container__card__component{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 113px;
+}
