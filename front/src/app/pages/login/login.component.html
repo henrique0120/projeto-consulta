@@ -1,29 +1,46 @@
-<form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-container">
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-header">
+      <img src="assets/medical-icon.svg" alt="Clinic Logo" class="login-logo" />
+      <h1>Vitalis Clinic</h1>
+      <p class="subtitle">Access your account</p>
+    </div>
 
-  <mat-form-field appearance="fill" class="full-width">
-    <mat-label>Email</mat-label>
-    <input
-      matInput
-      type="email"
-      name="email"
-      required
-      [(ngModel)]="email"
-      placeholder="Digite seu e-mail">
-  </mat-form-field>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="login-form">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          name="email"
+          required
+          [(ngModel)]="email"
+          placeholder="Digite seu e-mail"
+        />
+      </mat-form-field>
 
-  <mat-form-field appearance="fill" class="full-width">
-    <mat-label>Senha</mat-label>
-    <input
-      matInput
-      type="password"
-      name="password"
-      required
-      [(ngModel)]="password"
-      placeholder="Digite sua senha">
-  </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Senha</mat-label>
+        <input
+          matInput
+          type="password"
+          name="password"
+          required
+          [(ngModel)]="password"
+          placeholder="Digite sua senha"
+        />
+      </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
-    Entrar
-  </button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        Entrar
+      </button>
+    </form>
 
-</form>
+    <p class="footer-text">Taking care of your health, always.</p>
+  </div>
+</div>
