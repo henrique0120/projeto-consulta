@@ -42,11 +42,7 @@ public class WebSecurityConfig {
                 .cors(cors -> {}) // default
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(SWAGGER_WHITELIST).permitAll()
-                        .requestMatchers("/h2-console/**").permitAll()
-                        .requestMatchers("/login").permitAll()
-                        .requestMatchers("/register").permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 .addFilterAfter(new JWTFilter(jwtCreator, jwtConfig), UsernamePasswordAuthenticationFilter.class);
 
