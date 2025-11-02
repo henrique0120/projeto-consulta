@@ -24,6 +24,8 @@ public class ScheduleService implements IScheduleService {
     private final IPatientRepository patientRepository;
     private final IScheduleQueryService queryService;
     private final IScheduleMapper mapper; // opcional, mantive caso use depois
+    private final EmailService emailService; // ✅ novo serviço de e-mail
+
 
     @Override
     public ScheduleEntity save(final ScheduleEntity entity) {
@@ -45,6 +47,40 @@ public class ScheduleService implements IScheduleService {
 
         // Salva o agendamento
         ScheduleEntity savedEntity = repository.save(entity);
+        
+            // ✅ Envia e-mail de confirmação personalizada
+            try {
+
+                String destinatario = patient.getEmail();
+
+                // Formata datas e horas do agendamento
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+                String inicio = entity.getStartAt().format(formatter);
+                String fim = entity.getEndAt().format(formatter);
+
+                // Assunto do e-mail com nome do paciente
+                String assunto = "Confirmação de Consulta - " + patient.getName();
+
+                // Corpo da mensagem
+                String mensagem = String.format(
+                    "Olá %s,\n\n" +
+                    "Sua consulta foi agendada com sucesso!\n\n" +
+                    "🗓 Data e horário: %s às %s\n\n" +
+                    "Agradecemos por escolher a Medical Clinic.\n\n" +
+                    "Atenciosamente,\n" +
+                    "Equipe Medical Clinic",
+                    patient.getName(), inicio, fim
+                );
+
+                // Envia o e-mail
+                emailService.enviarEmail(destinatario, assunto, mensagem);
+
+                log.info("📧 E-mail de confirmação enviado para {}", destinatario);
+
+            } catch (Exception e) {
+                log.error("❌ Falha ao enviar e-mail de confirmação: {}", e.getMessage());
+            }
+
 
         // Formata as datas
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
@@ -64,9 +100,45 @@ public class ScheduleService implements IScheduleService {
         return savedEntity;
     }
 
-    @Override
-    public void delete(final long id) {
-        queryService.findById(id);
-        repository.deleteById(id);
+@Override
+public void delete(final long id) {
+    // Busca o agendamento para pegar dados antes de excluir
+    ScheduleEntity schedule = queryService.findById(id);
+
+    // Garante que o agendamento existe
+    if (schedule == null) {
+        throw new RuntimeException("Agendamento não encontrado para exclusão com ID: " + id);
     }
+
+    // Deleta o agendamento
+    repository.deleteById(id);
+
+    // Envia o e-mail de cancelamento
+    try {
+        PatientEntity patient = schedule.getPatient();
+        if (patient != null && patient.getEmail() != null) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+            String inicio = schedule.getStartAt().format(formatter);
+            String fim = schedule.getEndAt().format(formatter);
+
+            String assunto = "Cancelamento de Consulta - " + patient.getName();
+            String mensagem = String.format(
+                "Olá %s,\n\n" +
+                "Informamos que sua consulta marcada para o dia %s às %s foi cancelada.\n\n" +
+                "Se desejar reagendar, entre em contato com a nossa equipe.\n\n" +
+                "Atenciosamente,\n" +
+                "Equipe Medical Clinic",
+                patient.getName(), inicio, fim
+            );
+
+            emailService.enviarEmail(patient.getEmail(), assunto, mensagem);
+            log.info("📧 E-mail de cancelamento enviado para {}", patient.getEmail());
+        }
+    } catch (Exception e) {
+        log.error("❌ Falha ao enviar e-mail de cancelamento: {}", e.getMessage());
+    }
+
+    log.info("🗑️ Agendamento ID {} removido com sucesso", id);
+}
+
 }

@@ -38,6 +38,8 @@ dependencies {
 	implementation("org.flywaydb:flyway-core")
 	implementation("org.flywaydb:flyway-database-postgresql")
 	implementation("org.mapstruct:mapstruct:$mapStructionVersion")
+	implementation("org.springframework.boot:spring-boot-starter-mail")
+
 
 	compileOnly("org.projectlombok:lombok")
     runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
