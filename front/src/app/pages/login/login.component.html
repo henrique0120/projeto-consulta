@@ -1,9 +1,9 @@
 <div class="login-page">
   <div class="login-card">
     <div class="login-header">
-      <img src="assets/medical-icon.svg" alt="Clinic Logo" class="login-logo" />
+      <img src="assets/imgs/logo.png" alt="Clinic Logo" class="login-logo" />
       <h1>Vitalis Clinic</h1>
-      <p class="subtitle">Access your account</p>
+      <p class="subtitle">Acesse sua conta</p>
     </div>
 
     <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="login-form">
@@ -41,6 +41,14 @@
       </button>
     </form>
 
-    <p class="footer-text">Taking care of your health, always.</p>
+    <!-- Botão para tela de registro -->
+    <p class="switch-text">
+      Não tem uma conta?
+      <button class="link-button" type="button" (click)="goToRegister()">
+        Crie uma agora
+      </button>
+    </p>
+
+    <p class="footer-text">Cuidando da sua saúde, sempre.</p>
   </div>
 </div>

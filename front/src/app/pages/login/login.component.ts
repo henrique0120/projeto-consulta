@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { LoginService } from '../../services/api-login/login.service';
 import { LoginRequest } from '../../services/api-login/login.models';
 import { LocalStorageService } from '../../local-storage.service';
@@ -14,15 +14,16 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-
 export class LoginComponent {
-  email = ''
-  password = ''
+  email = '';
+  password = '';
 
-  constructor(private loginService: LoginService, private localStorageService: LocalStorageService,
-    private AuthService: AuthService, private Router: Router
+  constructor(
+    private loginService: LoginService,
+    private localStorageService: LocalStorageService,
+    private authService: AuthService,
+    private router: Router
   ) {}
-
 
   onSubmit(form: NgForm) {
     if (form.invalid) return;
@@ -35,8 +36,8 @@ export class LoginComponent {
     this.loginService.checkUser(loginRequest).subscribe({
       next: (response) => {
         console.log('Login com sucesso:', response);
-        this.AuthService.saveToken(response.token);
-        this.Router.navigate(['/home']);
+        this.authService.saveToken(response.token);
+        this.router.navigate(['/home']);
       },
       error: (err) => {
         console.error('Erro ao fazer login:', err);
@@ -44,4 +45,8 @@ export class LoginComponent {
     });
   }
 
+  // ✅ método para ir para o registro
+  goToRegister() {
+    this.router.navigate(['/register']);
+  }
 }

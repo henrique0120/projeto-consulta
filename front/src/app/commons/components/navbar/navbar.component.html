@@ -2,6 +2,7 @@
   <div class="navbar__logo">
     <img src="assets/imgs/logo.png" alt="" />
   </div>
+
   <div class="navbar__list">
     <ul>
       <li>
@@ -9,13 +10,15 @@
       </li>
       <li><span>•</span></li>
       <li><a href="https://github.com/henrique0120">Github</a></li>
-      <li><span>•</span></li>
-      <li><a href="">Youtube</a></li>
     </ul>
   </div>
-  <div class="navbar__button">
+
+  <div class="navbar__buttons">
     <button (click)="navigateTo()">
       {{homeButton}}
+    </button>
+    <button class="logout" (click)="logout()">
+      Logout
     </button>
   </div>
 </div>

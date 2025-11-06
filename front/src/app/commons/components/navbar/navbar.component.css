@@ -1,29 +1,25 @@
 .container__navbar {
   display: flex;
-  width: 70%;
-  align-items: center;
-  justify-content: center; /* Centraliza os itens dentro do contêiner */
-  padding: 0 20px;
-  position: relative; /* Para o posicionamento do logo */
-  margin: 0 auto;
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
   background-color: #F9FAEC;
 }
 
 .navbar__logo {
   position: absolute;
-  left: 300px; /* Ajuste a distância da borda esquerda */
+  left: 300px;
 }
 
 .navbar__logo img {
-  max-height: 50px; /* Ajuste o tamanho conforme necessário */
+  max-height: 50px;
 }
 
 .navbar__list ul {
   display: flex;
-  gap: 15px; /* Espaçamento entre os itens da lista */
+  gap: 15px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -31,23 +27,26 @@
 
 .navbar__list ul li a {
   text-decoration: none;
-  color: #000; /* Escolha a cor que preferir */
+  color: #000;
 }
 
-.navbar__button {
+.navbar__buttons {
   position: absolute;
-  right: 305px; /* Alinha o botão ao canto direito */
+  right: 305px;
+  display: flex;
+  gap: 10px; /* espaçamento entre os botões */
 }
 
-.navbar__button button {
+.navbar__buttons button {
   padding: 5px 20px;
-  background-color: #006D33; /* Cor de fundo do botão */
-  color: #fff; /* Cor do texto */
+  background-color: #006D33;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.navbar__button button:hover {
-  background-color: #00421f; /* Cor ao passar o mouse */
+.navbar__buttons button:hover {
+  background-color: #00421f;
 }
