@@ -26,4 +26,11 @@ export class NavbarComponent{
     }
   }
 
+  logout() {
+  // lógica de logout
+  console.log('Usuário deslogado');
+  // Exemplo: redirecionar para a tela de login
+  this.router.navigate(['/login']);
+}
+
 }

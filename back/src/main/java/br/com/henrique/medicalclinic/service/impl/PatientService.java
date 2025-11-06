@@ -18,7 +18,6 @@ public class PatientService implements IPatientService {
     public PatientEntity save(final PatientEntity entity) {
         queryService.verifyEmail(entity.getEmail());
         queryService.verifyPhone(entity.getPhone());
-
         return repository.save(entity);
     }
 

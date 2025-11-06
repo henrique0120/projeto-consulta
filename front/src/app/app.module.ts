@@ -30,6 +30,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTimepickerModule } from '@angular/material/timepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { RouterModule } from '@angular/router';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './commons/components/navbar/navbar.component';
@@ -68,6 +69,7 @@ import { RegisterComponent } from './pages/register/register.component'
     AppRoutingModule,
     FormsModule,
     MatCardModule,
+    RouterModule ,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,

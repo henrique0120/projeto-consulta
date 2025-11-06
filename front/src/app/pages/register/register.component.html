@@ -1,13 +1,12 @@
 <div class="register-page">
   <div class="register-card">
     <div class="register-header">
-      <img src="assets/medical-icon.svg" alt="Clinic Logo" class="register-logo">
+      <img src="assets/imgs/logo.png" alt="Clinic Logo" class="register-logo" />
       <h1>Vitalis Clinic</h1>
-      <p class="subtitle">Create your account</p>
+      <p class="subtitle">Crie sua conta</p>
     </div>
 
     <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="register-form">
-
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Name</mat-label>
         <input
@@ -16,7 +15,8 @@
           name="name"
           required
           [(ngModel)]="name"
-          placeholder="Digite seu nome">
+          placeholder="Digite seu nome"
+        />
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
@@ -27,7 +27,8 @@
           name="phone"
           required
           [(ngModel)]="phone"
-          placeholder="Digite seu telefone">
+          placeholder="Digite seu telefone"
+        />
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
@@ -38,7 +39,8 @@
           name="email"
           required
           [(ngModel)]="email"
-          placeholder="Digite seu e-mail">
+          placeholder="Digite seu e-mail"
+        />
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
@@ -49,14 +51,28 @@
           name="password"
           required
           [(ngModel)]="password"
-          placeholder="Digite sua senha">
+          placeholder="Digite sua senha"
+        />
       </mat-form-field>
 
-      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="form.invalid"
+      >
         Registrar
       </button>
     </form>
 
-    <p class="footer-text">Taking care of your health, always.</p>
+    <!-- Botão para voltar ao login -->
+    <p class="switch-text">
+      Já tem uma conta?
+      <button class="link-button" type="button" (click)="goToLogin()">
+        Acesse aqui
+      </button>
+    </p>
+
+    <p class="footer-text">Cuidando da sua saúde, sempre.</p>
   </div>
 </div>
